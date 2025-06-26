@@ -1,6 +1,6 @@
 # 📅 Date Extraction and Normalization
 
-This project extracts and normalizes messy medical note dates using regular expressions and Python. It handles multiple date formats and sorts them chronologically based on predefined assumptions.
+This project extracts and normalizes messy medical note dates using regular expressions and Python. It handles multiple date formats, visualizes yearly counts, and provides sorted output in a readable file.
 
 ## ✨ Features
 
@@ -8,7 +8,10 @@ This project extracts and normalizes messy medical note dates using regular expr
 - ✅ Normalization of dates with assumptions for missing day or month
 - ✅ Sorting based on extracted datetime
 - ✅ Detection of unmatched lines (lines with no valid date)
-- ✅ Clean structure: Modular scripts
+- ✅ Output saved to file: `sorted_dates_output.txt`
+- ✅ Bar plot visualization of number of notes per year (`year_distribution.png`)
+- ✅ Notebook-based interactive version included (`assignment1.ipynb`)
+- ✅ Clean structure: Modular scripts in `scripts/`
 
 ## 🧠 Motivation
 
@@ -20,7 +23,7 @@ Medical notes often contain date entries in inconsistent formats. This script pr
 
 ### 1. Install dependencies
 ```bash
-pip install pandas numpy
+pip install pandas numpy matplotlib
 ```
 
 ### 2. Folder Structure
@@ -29,21 +32,24 @@ pip install pandas numpy
 project_root/
 │
 ├── assets/
-│   └── dates.txt                # Raw input text file (500 medical notes)
+│   └── dates.txt                  # Raw input text file (500 medical notes)
 │
-├── extract_dates.py             # Main script to extract and sort dates
-├── find_unmatched.py           # Helper script to find lines with no valid date
+├── scripts/
+│   ├── extract_dates.py           # Main script to extract and sort dates
+│   └── find_unmatched.py          # Helper script to find unmatched lines
+│
+├── date_extraction_project.py     # Combined main version
+├── assignment1.ipynb              # Notebook with visualization
+├── sorted_dates_output.txt        # Sorted lines with extracted date
+├── year_distribution.png          # Bar chart of entries per year
 ├── README.md
 ```
 
-### 3. Run the scripts
+### 3. Run the script
 
 ```bash
-# Extract and sort dates
-python extract_dates.py
-
-# Find lines without matched dates
-python find_unmatched.py
+# Main execution
+python date_extraction_project.py
 ```
 
 ---
@@ -57,15 +63,15 @@ python find_unmatched.py
 
 ---
 
-## 📌 Sample Formats Supported
+## 📊 Visualization
 
-```
-04/20/2009     → Apr 20, 2009  
-Mar 20, 2009   → Mar 20, 2009  
-20 March 2009  → Mar 20, 2009  
-6/2008         → Jun 1, 2008  
-2009           → Jan 1, 2009
-```
+The script generates a bar chart showing the distribution of medical notes over the years. The chart is saved as `year_distribution.png`.
+
+---
+
+## 📤 Output File
+
+The file `sorted_dates_output.txt` contains all 500 lines sorted by detected date with line numbers for easier review.
 
 ---
 
