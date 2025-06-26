@@ -39,7 +39,6 @@ project_root/
 │   └── find_unmatched.py          # Helper script to find unmatched lines
 │
 ├── date_extraction_project.py     # Combined main version
-├── assignment1.ipynb              # Notebook with visualization
 ├── sorted_dates_output.txt        # Sorted lines with extracted date
 ├── year_distribution.png          # Bar chart of entries per year
 ├── README.md
